@@ -8,12 +8,12 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Nextshop</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>MyOrganic Body</h1>
+        <h1 className={styles.title}>MyOrganics Body</h1>
 
         <p className={styles.description}>
           Get all your organic product from here{" "}

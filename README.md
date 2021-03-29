@@ -1,2 +1,3 @@
-# Nextshop 
-### Custom E-Commerce For Your Business
+# Nextshop
+
+## Custom E-Commerce For Your Business
