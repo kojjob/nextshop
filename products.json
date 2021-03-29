@@ -1,0 +1,30 @@
+[  
+  {
+    "id": "price_1IaOltJ1MJv1wuXunxkSao4u",
+    "title": "Ramgoat Dashalong Powder",
+    "description": "Mild diuretic and tonic for nervous depression and poor appetite",
+    "image": "/images/ramgoat.jpg",
+    "price": "5.00"
+  },
+  {
+    "id": "price_1IaOpRJ1MJv1wuXuk9i0fdTS",
+    "title": "Fevergrass Powder",
+    "description": "Lemongrass leaves are commonly used as lemon flavoring in herbal teas.",
+    "image": "/images/Fevergrass.jpg",
+    "price": "5.00"
+  },
+  {
+    "id": "price_1IaOqhJ1MJv1wuXuXEZ1sNPU",
+    "title": "Soursop Powder",
+    "description": "To help promote healthy blood circulation, we recommend Soursop.",
+    "image": "/images/soursop.jpg",
+    "price": "5.00"
+  },
+  {  
+    "id": "price_1IaOrPJ1MJv1wuXuwWewKn9c",
+    "title": "Moringa Powder",
+    "description": "Moringa is a fantastic natural superfood for providing energy.",
+    "image": "/images/moringa.jpg",
+    "price": "5.00"
+  }
+  ]
