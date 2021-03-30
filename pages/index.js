@@ -1,11 +1,57 @@
+import { useState } from "react"
 import Head from "next/head"
 import styles from "../styles/Home.module.css"
 
 import initiateCheckout from "../lib/payments"
 
 import products from "../products.json"
-
+const defaultCart = {
+  products: {},
+}
 export default function Home() {
+  const [cart, updateCart] = useState(defaultCart)
+
+  const cartItems = Object.keys(cart.products).map((key) => {
+    const product = products.find(({ id }) => `${id}` === `${key}`)
+    return {
+      ...cart.products[key],
+      priceItem: product.price,
+    }
+  })
+  // total items in cart
+  const subTotal = cartItems.reduce((accm, { priceItem, quantity }) => {
+    return accm + priceItem * quantity
+  }, 0)
+
+  // total quantity in cart
+  const totalItems = cartItems.reduce((accm, { quantity }) => {
+    return accm + quantity
+  }, 0)
+  // Add items to cart
+  function addToCart({ id } = {}) {
+    updateCart((prev) => {
+      let cartState = { ...prev }
+      if (cartState.products[id]) {
+        cartState.products[id].quantity = cartState.products[id].quantity + 1
+      } else {
+        cartState.products[id] = {
+          id,
+          quantity: 1,
+        }
+      }
+      return cartState
+    })
+  }
+  function checkout() {
+      initiateCheckout({
+        lineItems: cartItems.map(item => {
+          return {
+            price: item.id,
+            quantity: item.quantity
+          }
+        })
+      })
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -19,7 +65,15 @@ export default function Home() {
         <p className={styles.description}>
           Get all your organic products from here{" "}
         </p>
-
+        <p className={styles.description}>
+          <strong>Items:</strong>
+          {totalItems}
+          <br />
+          <strong>Total Cost:</strong> £{subTotal}
+          <br />
+          <button className={styles.button} onClick={checkout}>Check Out</button>
+        </p>
+ 
         <ul className={styles.grid}>
           {products.map((product) => {
             const { id, title, description, image, price } = product
@@ -34,18 +88,14 @@ export default function Home() {
                 <p>
                   <button
                     className={styles.button}
+                    //Click to add to cart
                     onClick={() => {
-                      initiateCheckout({
-                        lineItems: [
-                          {
-                            price: id,
-                            quantity: 1,
-                          },
-                        ],
+                      addToCart({
+                        id,
                       })
                     }}
                   >
-                    Buy Now
+                    Add to Cart
                   </button>
                 </p>
               </li>
