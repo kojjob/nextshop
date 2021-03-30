@@ -43,14 +43,14 @@ export default function Home() {
     })
   }
   function checkout() {
-      initiateCheckout({
-        lineItems: cartItems.map(item => {
-          return {
-            price: item.id,
-            quantity: item.quantity
-          }
-        })
-      })
+    initiateCheckout({
+      lineItems: cartItems.map((item) => {
+        return {
+          price: item.id,
+          quantity: item.quantity,
+        }
+      }),
+    })
   }
   return (
     <div className={styles.container}>
@@ -60,20 +60,23 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>MyOrganics Body</h1>
+        <header className={styles.header}>
+          <h1 className={styles.title}>MyOrganic Body</h1>
 
-        <p className={styles.description}>
-          Get all your organic products from here{" "}
-        </p>
-        <p className={styles.description}>
-          <strong>Items:</strong>
-          {totalItems}
-          <br />
-          <strong>Total Cost:</strong> £{subTotal}
-          <br />
-          <button className={styles.button} onClick={checkout}>Check Out</button>
-        </p>
- 
+          <p className={styles.description}>
+            Get all your organic products from here{" "}
+          </p>
+          <p className={styles.description}>
+            <strong>Items:</strong>
+            {totalItems}
+            <br />
+            <strong>Total Cost:</strong> £{subTotal}
+            <br />
+            <button className={styles.button} onClick={checkout}>
+              Check Out
+            </button>
+          </p>
+        </header>
         <ul className={styles.grid}>
           {products.map((product) => {
             const { id, title, description, image, price } = product
@@ -81,9 +84,11 @@ export default function Home() {
               <li key={id} className={styles.card}>
                 <a href='#'>
                   <img src={image} alt='{title}' />
-                  <h3>{title}</h3>
-                  <p>£{price}</p>
-                  <p>{description}</p>
+                  <div className={styles.info}>
+                    <h3>{title}</h3>
+                    <p className={styles.price}>£{price}</p>
+                    <p>{description}</p>
+                  </div>
                 </a>
                 <p>
                   <button
