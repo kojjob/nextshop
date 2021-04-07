@@ -81,7 +81,7 @@ export default function Home() {
         </header>
         <ul className={styles.grid}>
           {products.map((product) => {
-            const { id, title, description, image, price } = product
+            const { id, title, image, price } = product
             return (
               <li key={id} className={styles.card}>
                 <a href='#'>
@@ -89,7 +89,6 @@ export default function Home() {
                   <div className={styles.info}>
                     <h3>{title}</h3>
                     <div className={styles.price}>£{price}</div>
-                    <p>{description}</p>
                   </div>
                 </a>
                 <p>
