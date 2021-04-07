@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Head from "next/head"
 import styles from "../styles/Home.module.css"
+import Nav from "../components/nav"
 
 import initiateCheckout from "../lib/payments"
 
@@ -54,6 +55,7 @@ export default function Home() {
   }
   return (
     <div className={styles.container}>
+      <Nav />
       <Head>
         <title>MyorganicBody</title>
         <link rel='icon' href='/favicon.ico' />
@@ -86,7 +88,7 @@ export default function Home() {
                   <img src={image} alt='{title}' />
                   <div className={styles.info}>
                     <h3>{title}</h3>
-                    <p className={styles.price}>£{price}</p>
+                    <div className={styles.price}>£{price}</div>
                     <p>{description}</p>
                   </div>
                 </a>
@@ -111,10 +113,12 @@ export default function Home() {
 
       <footer className={styles.footer}>
         <a
-          href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
+          href='https://nextshop-ivory.vercel.app/#'
           target='_blank'
           rel='noopener noreferrer'
-        ></a>
+        >
+          MyorganicBody
+        </a>
       </footer>
     </div>
   )
