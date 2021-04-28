@@ -1,3 +1,3 @@
 # iLikeU
 
-## Custom E-Commerce For Your Business
+### An eCommerce Store with Next.js and Stripe Checkout
