@@ -63,12 +63,12 @@ export default function Home() {
 
       <main className={styles.main}>
         <header className={styles.header}>
-          <h1 className={styles.title}>MyOrganic Body</h1>
+          <h1 className={styles.title}>My Organic Body</h1>
 
           <p className={styles.description}>
             Get all your organic products from here{" "}
           </p>
-          <p className={styles.description}>
+          <p className={styles.items}>
             <strong>Items:</strong>
             {totalItems}
             <br />
