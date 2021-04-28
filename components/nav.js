@@ -5,7 +5,7 @@ import styles from "../styles/Nav.module.css"
 export default function Nav() {
   return (
     <nav className={styles.navbar}>
-      <div className={styles.logo}>Nextshop</div>
+      <div className={styles.logo}>IMLIKEU</div>
       <ul className={styles.ul}>
         <li className={styles.li}>
           <a href='#'>Store</a>
